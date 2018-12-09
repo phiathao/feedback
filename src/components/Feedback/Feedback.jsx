@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+
+const mapStateToProps = (reduxStore) => {
+    return ({
+        feedback: reduxStore.feedback
+    })
+}
 
 class Feedback extends Component {
     render(){
@@ -10,4 +18,4 @@ class Feedback extends Component {
     }
 }
 
-export default Feedback;
+export default connect(mapStateToProps)(Feedback);

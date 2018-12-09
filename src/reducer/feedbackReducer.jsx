@@ -1,4 +1,10 @@
-const feedbackReducer = (state = [], action) => {
+const feedbackReducer = (state = {
+    feeling: '',
+    understanding: '',
+    support: '',
+    comments: '',
+    flagged: ''
+}, action) => {
     switch (action.type) {
         case "S_FB":
             return [...state, action.payload]

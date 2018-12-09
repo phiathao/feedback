@@ -1,0 +1,30 @@
+{
+  "name": "react-reflection-board",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "@material-ui/core": "^3.6.2",
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pg": "^7.4.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.1",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "react-scripts build",
+    "client": "react-scripts start",
+    "server": "nodemon --watch server server/server.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

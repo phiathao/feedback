@@ -6,8 +6,16 @@ const feedbackReducer = (state = {
     flagged: ''
 }, action) => {
     switch (action.type) {
-        case "S_FB":
-            return [...state, action.payload]
+        case "S_FB_F":
+            return state.feeling = action.payload;
+        case "S_FB_U":
+            return state.understanding = action.payload;
+        case "S_FB_S":
+            return state.support = action.payload;
+        case "S_FB_C":
+            return state.comments = action.payload;
+        case "S_FB_FL":
+            return state.flagged = action.payload;
         default:
             return state;
     }

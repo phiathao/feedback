@@ -6,6 +6,16 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import feedback from './reducer/feedbackReducer';
+import adminFeedback from './reducer/adminFeedbackReducer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const storeInstance = createStore (
+    combineReducers({
+        feedback,
+        adminFeedback
+    }),
+    applyMiddleware(logger)
+)
+
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Feeling from './Feeling-1';
-import Understanding from './Understanding-2';
-import Support from './Support-3';
-import Comments from './Comments-4';
-import Flag from './Flag-5';
+import Feeling from './FeedbackComponent/Feeling-1';
+import Understanding from './FeedbackComponent/Understanding-2';
+import Support from './FeedbackComponent/Support-3';
+import Comments from './FeedbackComponent/Comments-4';
+import Flag from './FeedbackComponent/Flag-5';
 import ReFeedback from '../rFeedBack/rFeedBack';
 import Admin from '../AdmFB/AdmFB';
 import Grid from '@material-ui/core/Grid';
 import { HashRouter as Router, Route} from 'react-router-dom';
-
-
-
-const mapStateToProps = (reduxStore) => {
-    return ({
-        feedback: reduxStore.feedback
-    })
-}
 
 class Feedback extends Component {
     render(){
@@ -36,6 +27,7 @@ class Feedback extends Component {
                         </Grid>
                         <Grid item xs={12}>
                             <Route path="/123admin" exact component={Admin} />
+                            {/* path to see admin view */}
                         </Grid>
                     </Grid>
                 </Router>
@@ -43,4 +35,4 @@ class Feedback extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Feedback);
+export default Feedback;

@@ -17,9 +17,6 @@ class ReFeedback extends Component {
         flagged: this.props.feedback.flagged
     }
     handleSubmit = event => {
-        if (this.state.feeling === '' || this.state.understanding === '' || this.state.support === '') {
-            return alert('Feedback is NOT complete!')
-        }
         axios.post('/feedback', this.state).then(response => {
             console.log(response)
         }).catch((error) => {
@@ -28,11 +25,15 @@ class ReFeedback extends Component {
         this.props.history.push('/new');
     }
     render() {
-        let staff;
+        let staff; // display true / false to yes or no
         if (this.state.flagged === '1') {
             staff = 'Yes';
         } else {
             staff = 'No';
+        }
+        let btn = true; // button disable check
+        if (this.state.feeling !== '' && this.state.understanding !== '' && this.state.support !== ''){
+                btn = false;
         }
         return (
             <div>
@@ -41,7 +42,7 @@ class ReFeedback extends Component {
                 <p>Support : {this.state.support}</p>
                 <p>Comments : {this.state.comments}</p>
                 <p>Talk to Staff : {staff}</p>
-                <Button onClick={this.handleSubmit} variant='outlined'>Submit</Button>
+                <Button onClick={this.handleSubmit} disabled={btn} variant='outlined'>Submit</Button>
             </div>
         )
     }

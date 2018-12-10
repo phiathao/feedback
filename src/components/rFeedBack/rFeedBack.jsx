@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from '@material-ui/core';
+import axios from 'axios';
 
 const mapStateToProps = (reduxStore) => {
     return ({
@@ -8,20 +10,29 @@ const mapStateToProps = (reduxStore) => {
 }
 class ReFeedback extends Component {
     state = {
-        feeling: '',
-        understanding: '',
-        support: '',
-        comments: '',
-        flagged: ''
+        feeling: this.props.feedback.feeling,
+        understanding: this.props.feedback.understanding,
+        support: this.props.feedback.support,
+        comments: this.props.feedback.comments,
+        flagged: this.props.feedback.flagged
     }
-    runFunction(){
-        this.props.dispatch({type:'test'})
+    handleSubmit = event => {
+        if (this.state.feeling === '' || this.state.understanding === '' || this.state.support === ''){
+            return alert('Feedback is NOT complete!')
+        }
+        axios.post('/api/pizza').then( response => {
+            this.props.dispatch({type: 'GET_PIZZAS', payload: response.data})
+       
+          })
     }
-    render(){
-        let potato = this.props.feedback.feeling;
+    render() {
         return (
             <div>
-                <p>{potato}</p>
+                <p>Feeling : {this.state.feeling}</p>
+                <p>Understanding : {this.state.understanding}</p>
+                <p>Support : {this.state.support}</p>
+                <p>Comments : {this.state.comments}</p>
+                <Button onClick={this.handleSubmit} variant='outlined'>Submit</Button>
             </div>
         )
     }

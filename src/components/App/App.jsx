@@ -10,10 +10,10 @@ import 'typeface-roboto';
 class App extends Component {
   render() {
     return (
-        <div className="App">
-            <Header />
-            <Feedback />
-        </div>
+      <div className="App">
+        <Header />
+        <Feedback />
+      </div>
     );
   }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 
 
 const mapStateToProps = (reduxStore) => {
@@ -9,10 +11,30 @@ const mapStateToProps = (reduxStore) => {
 }
 
 class Comments extends Component {
-    render(){
+    state = {
+        selectedValue: '',
+    };
+
+    handleChange = event => {
+        this.setState({ selectedValue: event.target.value });
+    };
+    nextFn = event => {
+        this.props.dispatch({ type: 'S_FB_C', payload: this.state.selectedValue })
+        this.props.history.push('/f');
+    }
+    render() {
         return (
             <div>
-                <p>this will be a comment input component</p>
+                <TextField
+                    onChange={this.handleChange}
+                    id="filled-with-placeholder"
+                    label="Any other comments"
+                    margin="normal"
+                    variant="filled"
+                    className="textArea"
+                />
+                <br/>
+                <Button onClick={this.nextFn} variant='outlined'>Next</Button>
             </div>
         )
     }

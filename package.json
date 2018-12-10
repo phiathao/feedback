@@ -15,7 +15,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.1",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "typeface-roboto": "0.0.54"
   },
   "devDependencies": {
     "nodemon": "^1.18.5"

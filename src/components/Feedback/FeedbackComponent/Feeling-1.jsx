@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './feedback.css';
+import '../feedback.css';
 import Radio from '@material-ui/core/Radio'
+import { Button } from '@material-ui/core';
 
 
 const mapStateToProps = (reduxStore) => {
@@ -18,6 +19,13 @@ class Feeling extends Component {
     handleChange = event => {
         this.setState({ selectedValue: event.target.value });
     };
+    nextFn = event => {
+        if (this.state.selectedValue === ''){
+            return alert('Select One');
+        }
+        this.props.dispatch({type: 'S_FB_F', payload: this.state.selectedValue})
+        this.props.history.push('/understanding');
+    }
     render(){
         return (
             <div>
@@ -54,6 +62,7 @@ class Feeling extends Component {
                         name="radio-feeling"
                     />
                     <span>I'm feeling great!</span>
+                    <Button onClick={this.nextFn} variant='outlined'>Next</Button>
             </div>
         )
     }

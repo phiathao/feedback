@@ -17,13 +17,15 @@ class Admin123 extends Component {
     }
 
     componentDidMount(){
-        this.getData()
+        this.getData() // initial get db function
     }
 
-    getData = () => {
+    getData = () => { // get DB feedback function
         axios.get('/feedback').then((response)=>{
             console.log(response.data)
-            this.props.dispatch({type: "V_FB", payload: response.data})
+            this.props.dispatch({type: "V_FB", payload: response.data}) //data isn't used WIP get data from reducer instead from the get
+            // WIP set reducer state
+            // WIP state change to reducer data instead
             this.setState({
                 feedback : response.data
             })
@@ -32,17 +34,17 @@ class Admin123 extends Component {
         })
     }
 
-    handleClick = (id) => {
+    handleClick = (id) => { // delete from DB
         axios.delete(`/feedback/${id}`).then((response)=>{
             console.log(response);
-            this.getData();
+            this.getData(); // update after delete
         }).catch((error)=>{
             console.log(error);
         })
     }
 
     render(){
-        console.log(this.state)
+        // console.log(this.state)
         return (
                 <table>
                     <thead>

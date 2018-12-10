@@ -3,13 +3,6 @@ import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 
-
-const mapStateToProps = (reduxStore) => {
-    return ({
-        feedback: reduxStore.feedback
-    })
-}
-
 class Comments extends Component {
     state = {
         selectedValue: '',
@@ -42,4 +35,4 @@ class Comments extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Comments);
+export default connect()(Comments);

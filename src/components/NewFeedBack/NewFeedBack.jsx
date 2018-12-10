@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class NewFeedback extends Component {
 
     nextFn = event => {
-        this.props.dispatch({ type: 'C_FB'})
+        this.props.dispatch({ type: 'C_FB'}) // clear reducer
         this.props.history.push('/');
     }
     render() {

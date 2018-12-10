@@ -3,12 +3,6 @@ import { connect } from 'react-redux';
 import Radio from '@material-ui/core/Radio';
 import { Button } from '@material-ui/core';
 
-const mapStateToProps = (reduxStore) => {
-    return ({
-        feedback: reduxStore.feedback
-    })
-}
-
 class Flag extends Component {
     state = {
         selectedValue: '',
@@ -47,4 +41,4 @@ class Flag extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Flag);
+export default connect()(Flag);

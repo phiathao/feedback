@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Radio from '@material-ui/core/Radio';
 import { Button } from '@material-ui/core';
-
-
-const mapStateToProps = (reduxStore) => {
-    return ({
-        feedback: reduxStore.feedback
-    })
-}
+// import {withRouter} from 'react-router-dom'; if you don't want to wrap a component with router / IE children inside a route component
 
 class Feeling extends Component {
     state = {
@@ -19,7 +13,7 @@ class Feeling extends Component {
         this.setState({ selectedValue: event.target.value });
     };
     nextFn = event => {
-        if (this.state.selectedValue === '') {
+        if (this.state.selectedValue === '') { //validation
             return alert('Select One');
         }
         this.props.dispatch({ type: 'S_FB_F', payload: this.state.selectedValue })
@@ -68,4 +62,4 @@ class Feeling extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Feeling);
+export default connect()(Feeling);

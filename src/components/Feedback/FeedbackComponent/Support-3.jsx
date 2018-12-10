@@ -3,12 +3,6 @@ import { connect } from 'react-redux';
 import Radio from '@material-ui/core/Radio';
 import { Button } from '@material-ui/core';
 
-const mapStateToProps = (reduxStore) => {
-    return ({
-        feedback: reduxStore.feedback
-    })
-}
-
 class Support extends Component {
     state = {
         selectedValue: '',
@@ -18,7 +12,7 @@ class Support extends Component {
         this.setState({ selectedValue: event.target.value });
     };
     nextFn = event => {
-        if (this.state.selectedValue === '') {
+        if (this.state.selectedValue === '') { //validation
             return alert('Select One');
         }
         this.props.dispatch({ type: 'S_FB_S', payload: this.state.selectedValue })
@@ -67,4 +61,4 @@ class Support extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Support);
+export default connect()(Support);

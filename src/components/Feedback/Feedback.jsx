@@ -27,7 +27,11 @@ class Feedback extends Component {
                     </Grid>
                     <Grid item xs={4}>
                         {/* <Route path={["/understanding", "/support", "/comments", "/f", "/"]} component={ReFeedback} /> */}
+                        {/* this component will only show if it has one of the path/url Route */}
                         {["/understanding", "/support", "/comments", "/f", "/", "/finish"].map((path, i) => <Route path={path} exact component={ReFeedback} key={i} />)}
+                        {/* this component will not show if it is for admin or /new path */}
+                        {/* different keys because react will act up cause of map */}
+                        {/* exact because if "/" it will show up 6 time */}
                     </Grid>
                     <Grid item xs={12}>
                         <Route path="/123admin" exact component={Admin} />

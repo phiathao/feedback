@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import axios from 'axios';
+import { Link }from 'react-router-dom';
+import './rFeedBack.css'
 
 const mapStateToProps = (reduxStore) => {
     return ({
-        feedback: reduxStore.feedback
+        feedback: reduxStore.feedback // only care about feedback reducer and prop name it as .feedback / this.props.feedback
     })
 }
 class ReFeedback extends Component {
-    state = {
+    state = { // use mapStateToProps / feedback is from above const mapStateToProps and uses .feedback reducer
         feeling: this.props.feedback.feeling,
         understanding: this.props.feedback.understanding,
         support: this.props.feedback.support,
         comments: this.props.feedback.comments,
         flagged: this.props.feedback.flagged
     }
-    handleSubmit = event => {
+    handleSubmit = event => { // save to db
         axios.post('/feedback', this.state).then(response => {
             console.log(response)
         }).catch((error) => {
@@ -31,17 +33,17 @@ class ReFeedback extends Component {
         } else {
             staff = 'No';
         }
-        let btn = true; // button disable check
+        let btn = true; // button disable check / if field are not empty turn disable to false
         if (this.state.feeling !== '' && this.state.understanding !== '' && this.state.support !== ''){
                 btn = false;
         }
         return (
             <div>
-                <p>Feeling : {this.state.feeling}</p>
-                <p>Understanding : {this.state.understanding}</p>
-                <p>Support : {this.state.support}</p>
-                <p>Comments : {this.state.comments}</p>
-                <p>Talk to Staff : {staff}</p>
+                <p><Link to="/" className="aLink">Feeling : {this.state.feeling}</Link></p>
+                <p><Link to="/understanding" className="aLink">Understanding : {this.state.understanding}</Link></p>
+                <p><Link to="/support" className="aLink">Support : {this.state.support}</Link></p>
+                <p><Link to="/comments" className="aLink">Comments : {this.state.comments}</Link></p>
+                <p><Link to="/f" className="aLink">Talk to Staff : {staff}</Link></p>
                 <Button onClick={this.handleSubmit} disabled={btn} variant='outlined'>Submit</Button>
             </div>
         )

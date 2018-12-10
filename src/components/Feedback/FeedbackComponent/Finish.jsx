@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button } from '@material-ui/core';
 
 class Finish extends Component {
-
     nextFn = event => {
         this.props.history.push('/');
     }

@@ -28,12 +28,19 @@ class ReFeedback extends Component {
             })
     }
     render() {
+        let staff;
+        if (this.state.flagged === '1'){
+            staff = 'Yes';
+        } else {
+            staff = 'No';
+        }
         return (
             <div>
                 <p>Feeling : {this.state.feeling}</p>
                 <p>Understanding : {this.state.understanding}</p>
                 <p>Support : {this.state.support}</p>
                 <p>Comments : {this.state.comments}</p>
+                <p>Talk to Staff : {staff}</p>
                 <Button onClick={this.handleSubmit} variant='outlined'>Submit</Button>
             </div>
         )

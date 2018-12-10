@@ -16,11 +16,9 @@ class Flag extends Component {
 
     handleChange = event => {
         this.setState({ selectedValue: event.target.value });
+        this.props.dispatch({ type: 'S_FB_FL', payload: this.state.selectedValue }) 
     };
     nextFn = event => {
-        if (this.state.selectedValue === '') {
-            return alert('Select One');
-        }
         this.props.dispatch({ type: 'S_FB_FL', payload: this.state.selectedValue })
         this.props.history.push('/');
     }

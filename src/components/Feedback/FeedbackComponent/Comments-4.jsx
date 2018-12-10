@@ -17,6 +17,7 @@ class Comments extends Component {
 
     handleChange = event => {
         this.setState({ selectedValue: event.target.value });
+        this.props.dispatch({ type: 'S_FB_C', payload: this.state.selectedValue })
     };
     nextFn = event => {
         this.props.dispatch({ type: 'S_FB_C', payload: this.state.selectedValue })

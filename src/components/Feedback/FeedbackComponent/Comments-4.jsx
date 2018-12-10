@@ -26,6 +26,7 @@ class Comments extends Component {
     render() {
         return (
             <div>
+                <p>4 of 5</p>
                 <TextField
                     onChange={this.handleChange}
                     id="filled-with-placeholder"

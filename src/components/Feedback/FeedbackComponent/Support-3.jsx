@@ -27,6 +27,7 @@ class Support extends Component {
     render() {
         return (
             <div>
+                <p>3 of 5</p>
                 <p>Did you feel supported by Prime staff today?</p>
                 <span>I feel abandoned.</span>
                 <Radio

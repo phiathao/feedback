@@ -28,6 +28,7 @@ class Feeling extends Component {
     render() {
         return (
             <div>
+                <p>1 of 5</p>
                 <p>How are you feeling today?</p>
                 <span>I'm very stressed.</span>
                 <Radio

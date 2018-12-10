@@ -20,11 +20,12 @@ class Flag extends Component {
     };
     nextFn = event => {
         this.props.dispatch({ type: 'S_FB_FL', payload: this.state.selectedValue })
-        this.props.history.push('/');
+        this.props.history.push('/finish');
     }
     render() {
         return (
             <div>
+                <p>5 of 5</p>
                 <p>Would you like someone from Prime support staff to talk with you?</p>
                 <span>Yes</span>
                 <Radio

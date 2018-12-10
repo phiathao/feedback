@@ -27,6 +27,7 @@ class Understanding extends Component {
     render() {
         return (
             <div>
+                <p>2 of 5</p>
                 <p>How well did you understand today's material?</p>
                 <span>I'm totally lost.</span>
                 <Radio

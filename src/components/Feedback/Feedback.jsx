@@ -9,6 +9,7 @@ import Admin from '../AdmFB/AdmFB';
 import Grid from '@material-ui/core/Grid';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import './feedback.css';
+import Finish from '../Feedback/FeedbackComponent/Finish';
 
 class Feedback extends Component {
     render() {
@@ -21,10 +22,11 @@ class Feedback extends Component {
                         <Route path="/support" component={Support} />
                         <Route path="/comments" component={Comments} />
                         <Route path="/f" component={Flag} />
+                        <Route path="/finish" component={Finish} />
                     </Grid>
                     <Grid item xs={4}>
                         {/* <Route path={["/understanding", "/support", "/comments", "/f", "/"]} component={ReFeedback} /> */}
-                        {["/understanding", "/support", "/comments", "/f", "/"].map((path, i) => <Route path={path} exact component={ReFeedback} key={i} />)}
+                        {["/understanding", "/support", "/comments", "/f", "/", "/finish"].map((path, i) => <Route path={path} exact component={ReFeedback} key={i} />)}
                     </Grid>
                     <Grid item xs={12}>
                         <Route path="/123admin" exact component={Admin} />

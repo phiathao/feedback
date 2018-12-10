@@ -16,6 +16,14 @@ const feedbackReducer = (state = {
             return { ...state, comments: action.payload };
         case "S_FB_FL":
             return { ...state, flagged: action.payload };
+        case "C_FB":
+            return (state = {
+                feeling: '',
+                understanding: '',
+                support: '',
+                comments: '',
+                flagged: ''
+            })
         default:
             return state;
     }

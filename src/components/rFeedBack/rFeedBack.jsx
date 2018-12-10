@@ -22,14 +22,14 @@ class ReFeedback extends Component {
         }
         axios.post('/feedback', this.state).then(response => {
             console.log(response)
+        }).catch((error) => {
+            console.log(error)
         })
-            .catch((error) => {
-                console.log(error)
-            })
+        this.props.history.push('/new');
     }
     render() {
         let staff;
-        if (this.state.flagged === '1'){
+        if (this.state.flagged === '1') {
             staff = 'Yes';
         } else {
             staff = 'No';

@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import './feedback.css';
 import Finish from '../Feedback/FeedbackComponent/Finish';
+import NewFeedback from '../NewFeedBack/NewFeedBack';
 
 class Feedback extends Component {
     render() {
@@ -31,6 +32,7 @@ class Feedback extends Component {
                     <Grid item xs={12}>
                         <Route path="/123admin" exact component={Admin} />
                         {/* path to see admin view */}
+                        <Route path="/new" exact component={NewFeedback} />
                     </Grid>
                 </Grid>
             </Router>

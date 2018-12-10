@@ -1,6 +1,6 @@
 # Redux Feedback Loop
 
-## DEPENDENCY
+### DEPENDENCY
 
 Express
 Postgres

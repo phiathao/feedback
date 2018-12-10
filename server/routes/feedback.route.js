@@ -14,7 +14,7 @@ pool.on('error', (error) => {
 router.post('/', (req, res) => {
     console.log(req.body);
     let feedback = req.body;
-    if (feedback.flagged === '' || feedback.flagged === '2') {
+    if (feedback.flagged === '' || feedback.flagged === '2') { // change flagged so it data can be use in query
         feedback.flagged = false;
     } else if (feedback.flagged === '1') {
         feedback.flagged = true;

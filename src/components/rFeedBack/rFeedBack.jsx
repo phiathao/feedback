@@ -17,13 +17,15 @@ class ReFeedback extends Component {
         flagged: this.props.feedback.flagged
     }
     handleSubmit = event => {
-        if (this.state.feeling === '' || this.state.understanding === '' || this.state.support === ''){
+        if (this.state.feeling === '' || this.state.understanding === '' || this.state.support === '') {
             return alert('Feedback is NOT complete!')
         }
-        axios.post('/api/pizza').then( response => {
-            this.props.dispatch({type: 'GET_PIZZAS', payload: response.data})
-       
-          })
+        axios.post('/feedback', this.state).then(response => {
+            console.log(response)
+        })
+            .catch((error) => {
+                console.log(error)
+            })
     }
     render() {
         return (

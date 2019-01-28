@@ -13,7 +13,11 @@ Redux
 
 ### SETUP
 
-Create your database and tables using the provided `data.sql` file. Start the server.
+Create the database name `feedback` in postico
+Host `localhost`
+Port `5432`
+Tables provided in `data.sql` file. 
+Start the server.
 
 ```
 npm install

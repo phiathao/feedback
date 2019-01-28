@@ -13,10 +13,14 @@ Redux
 
 ### SETUP
 
-Create the database name `feedback` in postico
-Host `localhost`
-Port `5432`
+Create the database name `feedback` in postico.
+
+Host `localhost`.
+
+Port `5432`.
+
 Tables provided in `data.sql` file. 
+
 Start the server.
 
 ```
